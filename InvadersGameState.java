@@ -1,7 +1,8 @@
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 public class InvadersGameState {
     Shooter player_shooter;
-    int score;
+    static int score = 0;
     ArrayList<Missile> missiles;
     ArrayList<Missile> enemy_missiles;
     ArrayList<Enemy> enemies;
@@ -18,7 +19,6 @@ public class InvadersGameState {
         enemies = new ArrayList<Enemy>();
         cooldown = 0;
         disp=0.0025;
-        score=0;
         missiles = new ArrayList<Missile>();
         enemy_missiles = new ArrayList<Missile>();
         for (int i = 0; i<6; i++){
@@ -41,10 +41,10 @@ public class InvadersGameState {
         //decrement the cooldown
         if (cooldown >0){cooldown-=1;}
         //check for movement
-        if(StdDraw.isKeyPressed(65)) {
+        if(StdDraw.isKeyPressed(65) && player_shooter.getX() > .05) {
             player_shooter.move(-0.01, 0);
         }
-        if(StdDraw.isKeyPressed(68)) {
+        if(StdDraw.isKeyPressed(68) && player_shooter.getX() < .95) {
             player_shooter.move(0.01, 0);
         }
         //check for shooting a missile
@@ -54,14 +54,16 @@ public class InvadersGameState {
             missiles.add(m);
             cooldown=35;
         }
-
         //UPDATE THE ENEMIES
         //when should they move other direction?
         double d=0;
         absEnemDispX += disp;
-        if(absEnemDispX > 0.3 || absEnemDispX < 0.0){
-            disp *=-1;
-            d=-0.01; //for downward movement
+        for(int i = 0; i < enemies.size(); i++){
+            if(enemies.get(i).getX() > 1.0 || enemies.get(i).getX() < 0.0){
+                disp *=-1;
+                d-=0.01;
+                break;
+            }
         }
         for (int i = 0; i<enemies.size(); i++){
             double r = Math.random();
