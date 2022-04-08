@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+
 //handles all details outside the gameloop
 public class Invaders {
     //these are functions to display different screens
@@ -25,6 +27,10 @@ public class Invaders {
 
 
         while(true){
+            //quits if 'q' is pressed
+            if(StdDraw.isKeyPressed(KeyEvent.VK_Q)){
+                System.exit(0);
+            }
             //check when to start running gameloop
             if (StdDraw.isKeyPressed(32)){
                 playing = true;
@@ -40,6 +46,7 @@ public class Invaders {
                     //if the player died
                     case 0:{
                         playing=false;
+                        InvadersGameState.score = 0;
                         DeathScreen();
                         StdDraw.show();
                         gameState = new InvadersGameState();
