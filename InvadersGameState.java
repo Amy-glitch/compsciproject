@@ -3,11 +3,13 @@ import java.util.ArrayList;
 public class InvadersGameState {
     Shooter player_shooter;
     static int score = 0;
+    static int level = 1;
     ArrayList<Missile> missiles;
     ArrayList<Missile> enemy_missiles;
     ArrayList<Enemy> enemies;
     double cooldown;
-    double disp;
+    static double disp = 0.0015;
+    static int direction = 1;
     double absEnemDispX;
 
     public static void main(String[] args) {}
@@ -18,7 +20,6 @@ public class InvadersGameState {
         player_shooter =  new Shooter();
         enemies = new ArrayList<Enemy>();
         cooldown = 0;
-        disp=0.0025;
         missiles = new ArrayList<Missile>();
         enemy_missiles = new ArrayList<Missile>();
         for (int i = 0; i<6; i++){
@@ -61,6 +62,7 @@ public class InvadersGameState {
         for(int i = 0; i < enemies.size(); i++){
             if(enemies.get(i).getX() > 1.0 || enemies.get(i).getX() < 0.0){
                 disp *=-1;
+                direction *= -1;
                 d-=0.01;
                 break;
             }
@@ -113,6 +115,7 @@ public class InvadersGameState {
         player_shooter.print();
         //print the score
         StdDraw.text(0.1,0.95,"Score: "+score);
+        StdDraw.text(0.9, 0.95, "Level: "+ level);
         //if we win!
         if (enemies.size()==0){res=2;}
         StdDraw.show(10);
