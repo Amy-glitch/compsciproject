@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 class Shooter extends DefaultCritter {
+    public double angle;
     public static void main(String[] args) {
+    }
+
+    public Shooter(){
+        angle = 1.0;
     }
 
     public boolean isHit(ArrayList<Missile> m){
@@ -17,9 +22,23 @@ class Shooter extends DefaultCritter {
         return hit;
     }
 
+    public void setAngle(double a){
+        angle =a;
+    }
+
+    public double getAngle(){
+        return  angle;
+    }
+
+
     public void print(){
         //System.out.println(x);
         StdDraw.filledSquare(x,y,0.05);
+      //  StdDraw.setPenRadius(20);
+        StdDraw.setPenRadius(0.01);
+        StdDraw.line(x,0.05,x+Math.cos(angle)/20.,0.05+Math.sin(angle)/20.);
+
+        StdDraw.setPenRadius(0.002);
     }
 
 

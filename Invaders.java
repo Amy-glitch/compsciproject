@@ -4,64 +4,97 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-
+import java.awt.Font;
 //handles all details outside the gameloop
 public class Invaders {
-    //static Timer timer = new Timer();
-    //Font countFont = new Font("Courier", Font.PLAIN, 30);
-    //Font normalFont = new Font("Courier",Font.PLAIN,15);
-    //static int count = 5;
-
-    //static TimerTask countdown = new TimerTask() {
-        //@Override
-        //public void run() {
-            //StdDraw.text(0.5, 0.3, String.valueOf(count));
-            //count--;
-        //}
-    //};
     //these are functions to display different screens
+    static String player_name;
     public  static void IntroScreen(){
         StdDraw.clear();
+        StdDraw.picture(0,0,"background.png",2,2);
+
+        Font title_font = new Font("Courier", Font.BOLD, 55);
+        StdDraw.setFont(title_font);
+        StdDraw.setPenColor(StdDraw.BLUE);
         StdDraw.text(0.5, 0.8, "Space Invaders");
+        StdDraw.setPenColor(StdDraw.YELLOW);
+        Font other_font = new Font("Courier", Font.BOLD, 18);
+        StdDraw.setFont(other_font);
         StdDraw.text(0.5, 0.6, "Press space to save the world!");
+        StdDraw.text(0.5, 0.4, "Shoot: [SPACE]");
+        StdDraw.text(0.5, 0.3, "Move: WASD");
+        StdDraw.text(0.5, 0.2, "Rotate: Left and right arrows");
+        StdDraw.setPenColor(StdDraw.BLACK);
+
     }
     public  static void DeathScreen() throws IOException {
         StdDraw.clear();
+        StdDraw.picture(0,0,"background.png",2,2);
+        StdDraw.setPenColor(StdDraw.YELLOW);
         StdDraw.text(0.5, 0.9, "You died");
         StdDraw.text(0.5, 0.8, "Press [SPACE] play again");
         StdDraw.text(0.5, 0.7, "Highscores:");
-        HighScores();
+       HighScores();
+        StdDraw.setPenColor(StdDraw.BLACK);
     }
     public  static void WinScreen(){
         StdDraw.clear();
-        StdDraw.text(0.5, 0.8, "You won");
-        StdDraw.text(0.5, 0.6, "Press space play again");
+        StdDraw.picture(0,0,"background.png",2,2);
+        StdDraw.setPenColor(StdDraw.YELLOW);
+        StdDraw.text(0.5, 0.8, "You beat level "+(InvadersGameState.level-1)+"!");
+        StdDraw.text(0.5, 0.6, "Press [SPACE] for the "+InvadersGameState.level);
+        StdDraw.setPenColor(StdDraw.BLACK);
     }
     public static void HighScores() throws IOException {
+        //get name of payer
+
+        char c;
+
+
+
         //reads textfile to get highscores
         ArrayList<Integer> scores = new ArrayList<Integer>();
+        ArrayList<String> names = new ArrayList<String>();
         File file = new File("highscores.txt");
-
         FileWriter fileWriter = new FileWriter(file,true);
         fileWriter.append("\n" + InvadersGameState.score);
+        fileWriter.append("\n" + player_name);
         fileWriter.close();
 
         Scanner scFile = new Scanner(file);
         while(scFile.hasNext()){
             Scanner scLine = new Scanner(scFile.nextLine());
             scores.add(scLine.nextInt());
+            if (scFile.hasNext()){
+            names.add(scFile.nextLine());}
         }
-        //sorts scores in descending order
-        Collections.sort(scores, Collections.reverseOrder());
+        //bubble sort
+        //Collections.sort(scores, Collections.reverseOrder());
+        for (int i =0; i< scores.size();i++){
+            for (int j =0; j< scores.size()-1;j++){
+                if (scores.get(j)<scores.get(j+1)){
+                    int temp = scores.get(j);
+                    scores.set(j,scores.get(j+1));
+                    scores.set(j+1,temp);
+                    String stemp = names.get(j);
+                    names.set(j,names.get(j+1));
+                    names.set(j+1,stemp);
+                }
+            }
+
+        }
+
         //prints top 5 scores
         if(scores.size() >= 5) {
             for (int i = 0; i < 5; i++) {
-                StdDraw.text(0.5, 0.4 - i * 0.05, "#" + (i + 1) + "  " + String.valueOf(scores.get(i)));
+               StdDraw.text(0.5, 0.4 - i * 0.05, "#" + (i + 1) + "  " +names.get(i) +' '+ String.valueOf(scores.get(i)));
+
             }
         }
     }
     public static void main(String[] args) throws IOException {
         IntroScreen();
+        player_name=args[0];
         boolean playing = false;
         InvadersGameState gameState = new InvadersGameState();
         gameState.Init();
@@ -87,7 +120,7 @@ public class Invaders {
                     //if the player died
                     case 0:{
                         playing=false;
-                        DeathScreen();
+                         DeathScreen();
                         StdDraw.show();
                         InvadersGameState.score = 0;
                         InvadersGameState.level = 1;

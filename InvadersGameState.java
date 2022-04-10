@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 public class InvadersGameState {
     Shooter player_shooter;
-    static int score = 0;
-    static int level = 1;
+    public static int score = 0;
+    public static int level = 1;
     ArrayList<Missile> missiles;
     ArrayList<Missile> enemy_missiles;
     ArrayList<Enemy> enemies;
     static ArrayList<Bunker> bunkers;
     double cooldown;
-    static double disp = 0.0015;
-    static int direction = 1;
+    public static double disp = 0.0015;
+    public static int direction = 1;
     double absEnemDispX;
 
     public static void main(String[] args) {}
@@ -65,6 +65,8 @@ public class InvadersGameState {
         int res=1;
         boolean alive = true;
         StdDraw.clear();
+        StdDraw.picture(0.5,0.5,"playing_background.jpg",1.5,1);
+
         //decrement the cooldown
         if (cooldown >0){cooldown-=1;}
         //check for movement
@@ -77,10 +79,26 @@ public class InvadersGameState {
         //check for shooting a missile
         if(StdDraw.isKeyPressed(32) && cooldown==0) {
             Missile m = new Missile();
-            m.setPos(player_shooter.x, 0.1);
+            m.setPos(player_shooter.x, 0.05);
+            double a=player_shooter.getAngle();
+
+            m.setDir(Math.cos(a)/100.,Math.sin(a)/100.);
             missiles.add(m);
             cooldown=35;
         }
+
+        if(StdDraw.isKeyPressed(37)){
+            if (player_shooter.getAngle()+0.05 < 3.0) {
+            player_shooter.setAngle(player_shooter.getAngle()+0.05);}
+        }
+        if(StdDraw.isKeyPressed(39)){
+
+            if (player_shooter.getAngle()-0.05 > -0.0) {
+                player_shooter.setAngle(player_shooter.getAngle()-0.05);
+            }
+        }
+
+
         //UPDATE THE ENEMIES
         //when should they move other direction?
         double d=0;
