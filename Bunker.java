@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-class Enemy extends DefaultCritter {
+
+public class Bunker extends DefaultCritter {
     public void print(){
-        StdDraw.filledCircle(x,y,0.04);
+        StdDraw.filledSquare(x,y,0.01);
     }
     boolean isHit(ArrayList<Missile> m){
         boolean hit=false;
@@ -9,16 +10,13 @@ class Enemy extends DefaultCritter {
             double mx= m.get(k).getX();
             double my= m.get(k).getY();
             double dist = Math.sqrt(Math.pow(x-mx,2)+Math.pow(y-my,2));
-            if (dist < 0.05 && m.get(k).getType()==false)
+            if (dist < 0.01)
             {
                 hit =true;
-                System.out.println("Enemy hit!");
+                System.out.println("Bunker hit!");
                 m.remove(k);
             }
         }
         return hit;
     }
-
-
-
 }

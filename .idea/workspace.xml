@@ -2,21 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1366373c-afd7-4ac3-bea1-b1d465862db2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bunker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DefaultCritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/DefaultCritter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvadersGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/InvadersGameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/DefaultCritter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/DefaultCritter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/compsciproject/InvadersGameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/InvadersGameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

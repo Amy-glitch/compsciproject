@@ -18,7 +18,7 @@ class Shooter extends DefaultCritter {
     }
 
     public void print(){
-        System.out.println(x);
+        //System.out.println(x);
         StdDraw.filledSquare(x,y,0.05);
     }
 

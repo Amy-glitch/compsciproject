@@ -1,14 +1,24 @@
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 //handles all details outside the gameloop
 public class Invaders {
+    //static Timer timer = new Timer();
+    //Font countFont = new Font("Courier", Font.PLAIN, 30);
+    //Font normalFont = new Font("Courier",Font.PLAIN,15);
+    //static int count = 5;
+
+    //static TimerTask countdown = new TimerTask() {
+        //@Override
+        //public void run() {
+            //StdDraw.text(0.5, 0.3, String.valueOf(count));
+            //count--;
+        //}
+    //};
     //these are functions to display different screens
     public  static void IntroScreen(){
         StdDraw.clear();
@@ -46,7 +56,7 @@ public class Invaders {
         //prints top 5 scores
         if(scores.size() >= 5) {
             for (int i = 0; i < 5; i++) {
-                StdDraw.text(0.5, 0.6 - i * 0.05, "#" + (i + 1) + "  " + String.valueOf(scores.get(i)));
+                StdDraw.text(0.5, 0.4 - i * 0.05, "#" + (i + 1) + "  " + String.valueOf(scores.get(i)));
             }
         }
     }
@@ -55,7 +65,7 @@ public class Invaders {
         boolean playing = false;
         InvadersGameState gameState = new InvadersGameState();
         gameState.Init();
-
+        gameState.initBunkers();
 
         while(true){
             //quits if 'q' is pressed
@@ -79,11 +89,12 @@ public class Invaders {
                         playing=false;
                         DeathScreen();
                         StdDraw.show();
-                        gameState = new InvadersGameState();
-                        gameState.Init();
                         InvadersGameState.score = 0;
                         InvadersGameState.level = 1;
                         InvadersGameState.disp = 0.0015;
+                        gameState = new InvadersGameState();
+                        gameState.Init();
+                        gameState.initBunkers();
                         break;
                     }
                     //if the player is still alive
@@ -101,6 +112,7 @@ public class Invaders {
                         else{
                             InvadersGameState.disp -= 0.001;
                         }
+                        InvadersGameState.level++;
                         WinScreen();
                         StdDraw.show();
                         gameState = new InvadersGameState();
