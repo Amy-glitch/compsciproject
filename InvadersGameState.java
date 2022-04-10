@@ -26,11 +26,13 @@ public class InvadersGameState {
         for (int i = 0; i<6; i++){
             Enemy e =new Enemy();
             e.setPos(0.1+i/10.0,0.8);
+            e.setSkin("Enemy1.png");
             enemies.add(e);
         }
         for (int i = 0; i<6; i++){
             Enemy e =new Enemy();
             e.setPos(0.1+i/10.0,0.7);
+            e.setSkin("Enemy2.png");
             enemies.add(e);
         }
     }

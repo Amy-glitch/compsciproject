@@ -1,3 +1,7 @@
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -11,27 +15,29 @@ public class Invaders {
     static String player_name;
     public  static void IntroScreen(){
         StdDraw.clear();
-        StdDraw.picture(0,0,"background.png",2,2);
+        StdDraw.picture(.5,.5,"introBackground.png");
 
-        Font title_font = new Font("Courier", Font.BOLD, 55);
-        StdDraw.setFont(title_font);
-        StdDraw.setPenColor(StdDraw.BLUE);
-        StdDraw.text(0.5, 0.8, "Space Invaders");
-        StdDraw.setPenColor(StdDraw.YELLOW);
-        Font other_font = new Font("Courier", Font.BOLD, 18);
-        StdDraw.setFont(other_font);
-        StdDraw.text(0.5, 0.6, "Press space to save the world!");
-        StdDraw.text(0.5, 0.4, "Shoot: [SPACE]");
-        StdDraw.text(0.5, 0.3, "Move: WASD");
-        StdDraw.text(0.5, 0.2, "Rotate: Left and right arrows");
-        StdDraw.setPenColor(StdDraw.BLACK);
+        //Font title_font = new Font("Courier", Font.BOLD, 55);
+        //StdDraw.setFont(title_font);
+        //StdDraw.setPenColor(StdDraw.BLUE);
+        //StdDraw.text(0.5, 0.8, "Space Invaders");
+        //StdDraw.setPenColor(StdDraw.YELLOW);
+        //Font other_font = new Font("Courier", Font.BOLD, 18);
+        //StdDraw.setFont(other_font);
+        //StdDraw.text(0.5, 0.6, "Press space to save the world!");
+        //StdDraw.text(0.5, 0.4, "Shoot: [SPACE]");
+        //StdDraw.text(0.5, 0.3, "Move: WASD");
+        //StdDraw.text(0.5, 0.2, "Rotate: Left and right arrows");
+        //StdDraw.setPenColor(StdDraw.BLACK);
+        StdAudio.loopInBackground("MainMenuTheme.wav");
 
     }
     public  static void DeathScreen() throws IOException {
         StdDraw.clear();
         StdDraw.picture(0,0,"background.png",2,2);
-        StdDraw.setPenColor(StdDraw.YELLOW);
-        StdDraw.text(0.5, 0.9, "You died");
+        StdDraw.setPenColor(StdDraw.RED);
+        StdDraw.text(0.5, 0.9, "GAME OVER!");
+        StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.text(0.5, 0.8, "Press [SPACE] play again");
         StdDraw.text(0.5, 0.7, "Highscores:");
        HighScores();
@@ -39,7 +45,7 @@ public class Invaders {
     }
     public  static void WinScreen(){
         StdDraw.clear();
-        StdDraw.picture(0,0,"background.png",2,2);
+        StdDraw.picture(0.5,0.5,"background.png");
         StdDraw.setPenColor(StdDraw.YELLOW);
         StdDraw.text(0.5, 0.8, "You beat level "+(InvadersGameState.level-1)+"!");
         StdDraw.text(0.5, 0.6, "Press [SPACE] for the "+InvadersGameState.level);
@@ -94,7 +100,7 @@ public class Invaders {
     }
     public static void main(String[] args) throws IOException {
         IntroScreen();
-        player_name=args[0];
+        player_name= JOptionPane.showInputDialog("Type you name:");
         boolean playing = false;
         InvadersGameState gameState = new InvadersGameState();
         gameState.Init();
@@ -116,11 +122,12 @@ public class Invaders {
                 //run the gameloop
                 int res = gameState.GameLoop();
 
+
                 switch (res){
                     //if the player died
                     case 0:{
                         playing=false;
-                         DeathScreen();
+                        DeathScreen();
                         StdDraw.show();
                         InvadersGameState.score = 0;
                         InvadersGameState.level = 1;
@@ -153,20 +160,7 @@ public class Invaders {
                         break;
                     }
                 }
-
-
             }
-
-
-
-
-
         }
-
-
-
-
     }
-
-
 }
