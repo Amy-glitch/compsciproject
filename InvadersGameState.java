@@ -1,13 +1,15 @@
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 public class InvadersGameState {
     Shooter player_shooter;
     static int score = 0;
+    static int level = 1;
     ArrayList<Missile> missiles;
     ArrayList<Missile> enemy_missiles;
     ArrayList<Enemy> enemies;
+    static ArrayList<Bunker> bunkers;
     double cooldown;
-    double disp;
+    static double disp = 0.0015;
+    static int direction = 1;
     double absEnemDispX;
 
     public static void main(String[] args) {}
@@ -18,9 +20,9 @@ public class InvadersGameState {
         player_shooter =  new Shooter();
         enemies = new ArrayList<Enemy>();
         cooldown = 0;
-        disp=0.0025;
         missiles = new ArrayList<Missile>();
         enemy_missiles = new ArrayList<Missile>();
+
         for (int i = 0; i<6; i++){
             Enemy e =new Enemy();
             e.setPos(0.1+i/10.0,0.8);
@@ -32,6 +34,31 @@ public class InvadersGameState {
             enemies.add(e);
         }
     }
+    public void initBunkers(){
+        bunkers = new ArrayList<Bunker>();
+
+        for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 5; j++){
+                    Bunker b = new Bunker();
+                    b.setPos(0.15+j*0.02, 0.25+i*0.02);
+                    bunkers.add(b);
+                }
+            }
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 5; j++){
+                    Bunker b = new Bunker();
+                    b.setPos(0.45+j*0.02, 0.25+i*0.02);
+                    bunkers.add(b);
+                }
+            }
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 5; j++){
+                    Bunker b = new Bunker();
+                    b.setPos(0.75+j*0.02, 0.25+i*0.02);
+                    bunkers.add(b);
+                }
+            }
+        }
 
     //this handles the main loop of the game run each iteration
     public int GameLoop(){
@@ -61,7 +88,8 @@ public class InvadersGameState {
         for(int i = 0; i < enemies.size(); i++){
             if(enemies.get(i).getX() > 1.0 || enemies.get(i).getX() < 0.0){
                 disp *=-1;
-                d-=0.01;
+                direction *= -1;
+                d-=0.02;
                 break;
             }
         }
@@ -90,6 +118,20 @@ public class InvadersGameState {
                 score++;
             }
         }
+        //UPDATE BUNKERS
+        for (int i = 0; i < bunkers.size(); i++){
+            bunkers.get(i).print();
+            //check if we hit the bunker
+            boolean hitShooter = bunkers.get(i).isHit(missiles);
+            if (hitShooter ==true){
+                bunkers.remove(i);
+            }
+            //check if enemy hit the bunker
+            boolean hitEnemy = bunkers.get(i).isHit(enemy_missiles);
+            if (hitEnemy ==true){
+                bunkers.remove(i);
+            }
+        }
 
         //UPDATE MISSILES
         for (int k =0; k<missiles.size();k++){
@@ -113,6 +155,7 @@ public class InvadersGameState {
         player_shooter.print();
         //print the score
         StdDraw.text(0.1,0.95,"Score: "+score);
+        StdDraw.text(0.9, 0.95, "Level: "+ level);
         //if we win!
         if (enemies.size()==0){res=2;}
         StdDraw.show(10);

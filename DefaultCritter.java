@@ -4,7 +4,7 @@ class DefaultCritter implements Critter {
     double y=0.0;
 
     public void move(double px, double py){
-        System.out.println("has moved");
+        //System.out.println("has moved");
         x +=px;
         y+=py;
     }
