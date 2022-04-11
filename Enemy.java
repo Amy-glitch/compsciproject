@@ -3,7 +3,7 @@ import java.util.ArrayList;
 class Enemy extends DefaultCritter {
     String skin;
     public void print(){
-        StdDraw.picture(x,y, skin, 0.06, 0.08);
+        StdDraw.picture(x,y, skin);
     }
     public void setSkin(String skin) {
         this.skin = skin;

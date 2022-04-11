@@ -7,7 +7,7 @@ class Missile extends DefaultCritter {
     }
 
     public void print(){
-        StdDraw.filledCircle(x,y,0.01);
+        StdDraw.picture(x,y,"enemymissile.png");
     }
 
     public void setDir(double dx,double dy){
