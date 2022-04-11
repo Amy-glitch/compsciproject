@@ -1,8 +1,14 @@
+import java.io.File;
 import java.util.ArrayList;
 class Enemy extends DefaultCritter {
+    String skin;
     public void print(){
-        StdDraw.filledCircle(x,y,0.04);
+        StdDraw.picture(x,y, skin, 0.06, 0.08);
     }
+    public void setSkin(String skin) {
+        this.skin = skin;
+    }
+
     boolean isHit(ArrayList<Missile> m){
         boolean hit=false;
         for (int k =0; k<m.size();k++){
