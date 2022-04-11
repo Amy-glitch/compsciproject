@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1366373c-afd7-4ac3-bea1-b1d465862db2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Shooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Shooter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +47,11 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\svwyk\Documents\GitHub\compsciproject2\out\production\compsciproject" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Invaders" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

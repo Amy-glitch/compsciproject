@@ -29,7 +29,8 @@ public class Invaders {
         //StdDraw.text(0.5, 0.3, "Move: WASD");
         //StdDraw.text(0.5, 0.2, "Rotate: Left and right arrows");
         //StdDraw.setPenColor(StdDraw.BLACK);
-        StdAudio.loopInBackground("MainMenuTheme.wav");
+        StdAudio.loop("Music.wav");
+
 
     }
     public  static void DeathScreen() throws IOException {
