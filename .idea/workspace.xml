@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1366373c-afd7-4ac3-bea1-b1d465862db2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bunker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deathBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enemymissile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/winBackground.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvadersGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/InvadersGameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shooter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Shooter.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Bunker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Bunker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Enemy1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Enemy1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Enemy2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Enemy2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/InvadersGameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/InvadersGameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Missile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Missile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Shooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Shooter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Shooter.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Shooter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
