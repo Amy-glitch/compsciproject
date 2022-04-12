@@ -1,6 +1,4 @@
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,7 +6,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.awt.Font;
 //handles all details outside the gameloop
 public class Invaders {
     //these are functions to display different screens
@@ -16,50 +13,38 @@ public class Invaders {
     public  static void IntroScreen(){
         StdDraw.clear();
         StdDraw.picture(.5,.5,"introBackground.png");
-
-        //Font title_font = new Font("Courier", Font.BOLD, 55);
-        //StdDraw.setFont(title_font);
-        //StdDraw.setPenColor(StdDraw.BLUE);
-        //StdDraw.text(0.5, 0.8, "Space Invaders");
-        //StdDraw.setPenColor(StdDraw.YELLOW);
-        //Font other_font = new Font("Courier", Font.BOLD, 18);
-        //StdDraw.setFont(other_font);
-        //StdDraw.text(0.5, 0.6, "Press space to save the world!");
-        //StdDraw.text(0.5, 0.4, "Shoot: [SPACE]");
-        //StdDraw.text(0.5, 0.3, "Move: WASD");
-        //StdDraw.text(0.5, 0.2, "Rotate: Left and right arrows");
-        //StdDraw.setPenColor(StdDraw.BLACK);
         StdAudio.loop("Music.wav");
-
-
     }
     public  static void DeathScreen() throws IOException {
         StdDraw.clear();
-        StdDraw.picture(0,0,"background.png",2,2);
         StdDraw.setPenColor(StdDraw.RED);
-        StdDraw.text(0.5, 0.9, "GAME OVER!");
+        Font fontLevel = new Font("Arial", Font.BOLD, 50);
+        StdDraw.setFont(fontLevel);
+        StdDraw.text(0.65, 0.785, String.valueOf(InvadersGameState.level));
+        StdDraw.picture(0.5,0.5,"deathBackground.png");
+        HighScores();
+
+        //back to normal font
         StdDraw.setPenColor(StdDraw.WHITE);
-        StdDraw.text(0.5, 0.8, "Press [SPACE] play again");
-        StdDraw.text(0.5, 0.7, "Highscores:");
-       HighScores();
-        StdDraw.setPenColor(StdDraw.BLACK);
+        Font standard = new Font("Arial", Font.PLAIN, 16);
+        StdDraw.setFont(standard);
     }
     public  static void WinScreen(){
         StdDraw.clear();
-        StdDraw.picture(0.5,0.5,"background.png");
-        StdDraw.setPenColor(StdDraw.YELLOW);
-        StdDraw.text(0.5, 0.8, "You beat level "+(InvadersGameState.level-1)+"!");
-        StdDraw.text(0.5, 0.6, "Press [SPACE] for the "+InvadersGameState.level);
-        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.picture(0.5,0.5,"winBackground.png");
+        StdDraw.setPenColor(StdDraw.RED);
+        Font fontLevel = new Font("Arial", Font.BOLD, 50);
+        StdDraw.setFont(fontLevel);
+        StdDraw.text(0.65, 0.785, String.valueOf(InvadersGameState.level));
+        StdDraw.setPenColor(StdDraw.WHITE);
+        Font standard = new Font("Arial", Font.PLAIN, 16);
+        StdDraw.setFont(standard);
     }
     public static void HighScores() throws IOException {
-        //get name of payer
-
-        char c;
-
-
-
         //reads textfile to get highscores
+        StdDraw.setPenColor(StdDraw.WHITE);
+        Font standard = new Font("Arial", Font.PLAIN, 16);
+        StdDraw.setFont(standard);
         ArrayList<Integer> scores = new ArrayList<Integer>();
         ArrayList<String> names = new ArrayList<String>();
         File file = new File("highscores.txt");
@@ -90,11 +75,13 @@ public class Invaders {
             }
 
         }
-
         //prints top 5 scores
         if(scores.size() >= 5) {
+            StdDraw.setPenColor(StdDraw.BLACK);
+            Font highscoreFont = new Font("Arial", Font.BOLD, 25);
+            StdDraw.setFont(highscoreFont);
             for (int i = 0; i < 5; i++) {
-               StdDraw.text(0.5, 0.4 - i * 0.05, "#" + (i + 1) + "  " +names.get(i) +' '+ String.valueOf(scores.get(i)));
+               StdDraw.text(0.5, 0.5 - i * 0.05, "#" + (i + 1) + "  " +names.get(i) +' '+ String.valueOf(scores.get(i)));
 
             }
         }
@@ -153,8 +140,8 @@ public class Invaders {
                         else{
                             InvadersGameState.disp -= 0.001;
                         }
-                        InvadersGameState.level++;
                         WinScreen();
+                        InvadersGameState.level++;
                         StdDraw.show();
                         gameState = new InvadersGameState();
                         gameState.Init();

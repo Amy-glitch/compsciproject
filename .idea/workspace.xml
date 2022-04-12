@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1366373c-afd7-4ac3-bea1-b1d465862db2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/InGameTheme.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/Invaders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/MainMenuTheme.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compsciproject/highscores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -93,5 +92,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

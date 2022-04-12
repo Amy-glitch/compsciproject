@@ -63,7 +63,7 @@ public class InvadersGameState {
         }
 
     //this handles the main loop of the game run each iteration
-    public int GameLoop(){
+    public int GameLoop() throws IndexOutOfBoundsException{
         int res=1;
         boolean alive = true;
         StdDraw.clear();
@@ -143,12 +143,8 @@ public class InvadersGameState {
             bunkers.get(i).print();
             //check if we hit the bunker
             boolean hitShooter = bunkers.get(i).isHit(missiles);
-            if (hitShooter ==true){
-                bunkers.remove(i);
-            }
-            //check if enemy hit the bunker
             boolean hitEnemy = bunkers.get(i).isHit(enemy_missiles);
-            if (hitEnemy ==true){
+            if (hitShooter == true || hitEnemy == true){
                 bunkers.remove(i);
             }
         }
