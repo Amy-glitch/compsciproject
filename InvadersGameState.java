@@ -3,6 +3,7 @@ public class InvadersGameState {
     Shooter player_shooter;
     public static int score = 0;
     public static int level = 1;
+    public static int lives = 1;
     ArrayList<Missile> missiles;
     ArrayList<Missile> enemy_missiles;
     ArrayList<Enemy> enemies;
@@ -80,6 +81,7 @@ public class InvadersGameState {
         }
         //check for shooting a missile
         if(StdDraw.isKeyPressed(32) && cooldown==0) {
+            StdAudio.play("Shoot.wav");
             Missile m = new Missile();
             m.setPos(player_shooter.x, 0.05);
             double a=player_shooter.getAngle();
@@ -134,6 +136,7 @@ public class InvadersGameState {
             //check if we hit the enemy
             boolean hit = enemies.get(i).isHit(missiles);
             if (hit ==true){
+                StdAudio.play("Hit.wav");
                 enemies.remove(i);
                 score++;
             }
@@ -164,14 +167,20 @@ public class InvadersGameState {
         }
 
         //IF WE ARE SHOT
-        if (player_shooter.isHit(enemy_missiles)){
+        if (player_shooter.isHit(enemy_missiles) && lives == 0){
             res=0;
         }
         //print the shooter
         player_shooter.print();
-        //print the score
+        //print the score, level, lives
         StdDraw.text(0.1,0.95,"Score: "+score);
         StdDraw.text(0.9, 0.95, "Level: "+ level);
+        for (int i = 0; i < 3; i++){
+            StdDraw.picture(0.445+i*0.055, 0.95, "heartEmpty.png");
+        }
+        for(int i = 0; i < lives; i ++){
+            StdDraw.picture(0.445+i*0.055, 0.95, "heart.png");
+        }
         //if we win!
         if (enemies.size()==0){res=2;}
         StdDraw.show(10);
