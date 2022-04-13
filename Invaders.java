@@ -119,6 +119,7 @@ public class Invaders {
                         StdDraw.show();
                         InvadersGameState.score = 0;
                         InvadersGameState.level = 1;
+                        InvadersGameState.lives = 1;
                         InvadersGameState.disp = 0.0015;
                         gameState = new InvadersGameState();
                         gameState.Init();
@@ -142,6 +143,9 @@ public class Invaders {
                         }
                         WinScreen();
                         InvadersGameState.level++;
+                        if(InvadersGameState.lives < 3){
+                            InvadersGameState.lives++;
+                        }
                         StdDraw.show();
                         gameState = new InvadersGameState();
                         gameState.Init();
