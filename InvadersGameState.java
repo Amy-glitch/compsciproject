@@ -9,7 +9,7 @@ public class InvadersGameState {
     ArrayList<Enemy> enemies;
     static ArrayList<Bunker> bunkers;
     double cooldown;
-    public static double disp = 0.0015;
+    public static double disp = 0.003;
     public static int direction = 1;
     double absEnemDispX;
 
@@ -23,6 +23,7 @@ public class InvadersGameState {
         cooldown = 0;
         missiles = new ArrayList<Missile>();
         enemy_missiles = new ArrayList<Missile>();
+        disp = 0.003*level;
 
         for (int i = 0; i<6; i++){
             Enemy e =new Enemy();
@@ -68,7 +69,7 @@ public class InvadersGameState {
         int res=1;
         boolean alive = true;
         StdDraw.clear();
-        StdDraw.picture(0.5,0.5,"playing_background.jpg",1.5,1);
+        StdDraw.picture(0.5,0.5,"pb.png",1,1);
 
         //decrement the cooldown
         if (cooldown >0){cooldown-=1;}
