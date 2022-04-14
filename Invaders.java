@@ -13,7 +13,7 @@ public class Invaders {
     public  static void IntroScreen(){
         StdDraw.clear();
         StdDraw.picture(.5,.5,"introBackground.png");
-        //StdAudio.loop("Music.wav");
+        StdAudio.loop("Music.wav");
     }
     public  static void DeathScreen() throws IOException {
         StdDraw.clear();
