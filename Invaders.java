@@ -13,7 +13,7 @@ public class Invaders {
     public  static void IntroScreen(){
         StdDraw.clear();
         StdDraw.picture(.5,.5,"introBackground.png");
-        //StdAudio.loop("Music.wav");
+        StdAudio.loop("Music.wav");
     }
     public  static void DeathScreen() throws IOException {
         StdDraw.clear();
@@ -41,7 +41,7 @@ public class Invaders {
         StdDraw.setFont(standard);
     }
     public static void HighScores() throws IOException {
-        //reads textfile to get highscores
+        //reads textfile to get highscores and writes to textfile
         StdDraw.setPenColor(StdDraw.WHITE);
         Font standard = new Font("Arial", Font.PLAIN, 16);
         StdDraw.setFont(standard);
@@ -61,7 +61,6 @@ public class Invaders {
             names.add(scFile.nextLine());}
         }
         //bubble sort
-        //Collections.sort(scores, Collections.reverseOrder());
         for (int i =0; i< scores.size();i++){
             for (int j =0; j< scores.size()-1;j++){
                 if (scores.get(j)<scores.get(j+1)){
@@ -88,7 +87,7 @@ public class Invaders {
     }
     public static void main(String[] args) throws IOException {
         IntroScreen();
-        player_name= JOptionPane.showInputDialog("Type you name:");
+        player_name= JOptionPane.showInputDialog("Type you name:"); //Input at start of game to save for highscores
         boolean playing = false;
         InvadersGameState gameState = new InvadersGameState();
         gameState.Init();
@@ -104,12 +103,10 @@ public class Invaders {
                 playing = true;
                 StdDraw.clear();
             }
-
             //if we are already playing
             if (playing == true){
                 //run the gameloop
                 int res = gameState.GameLoop();
-
 
                 switch (res){
                     //if the player died
@@ -142,6 +139,7 @@ public class Invaders {
                             InvadersGameState.disp -= 0.001;
                         }
                         WinScreen();
+                        //increases level and number of lives if less than 3
                         InvadersGameState.level++;
                         if(InvadersGameState.lives < 3){
                             InvadersGameState.lives++;

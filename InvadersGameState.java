@@ -25,6 +25,7 @@ public class InvadersGameState {
         enemy_missiles = new ArrayList<Missile>();
         disp = 0.003*level;
 
+        //initialises enemies
         for (int i = 0; i<6; i++){
             Enemy e =new Enemy();
             e.setPos(0.1+i/10.0,0.8);
@@ -39,6 +40,7 @@ public class InvadersGameState {
         }
     }
     public void initBunkers(){
+        //initialises bunkers separately since they need to remain in their previous state after each level
         bunkers = new ArrayList<Bunker>();
 
         for (int i = 0; i < 3; i++){
@@ -91,7 +93,7 @@ public class InvadersGameState {
             missiles.add(m);
             cooldown=35;
         }
-
+        //changes angle of turret and stops if angle is greater than horizontal
         if(StdDraw.isKeyPressed(37)){
             if (player_shooter.getAngle()+0.05 < 3.0) {
             player_shooter.setAngle(player_shooter.getAngle()+0.05);}
@@ -116,6 +118,7 @@ public class InvadersGameState {
                 break;
             }
         }
+        //random missiles shot by enemies
         for (int i = 0; i<enemies.size(); i++){
             double r = Math.random();
             if (r<0.002){
@@ -123,7 +126,6 @@ public class InvadersGameState {
                 m.setPos(enemies.get(i).getX(),enemies.get(i).getY()-0.1);
                 m.setType(true);
                 m.setDir(0,-0.005);
-                //missiles.add(m);
                 enemy_missiles.add(m);
             }
             //we lose if an enemy has made to to the ground
@@ -143,6 +145,7 @@ public class InvadersGameState {
             }
         }
         //UPDATE BUNKERS
+        //checks if missile hits bunker and removes if true
         for (int i = 0; i < bunkers.size(); i++){
             bunkers.get(i).print();
             //check if we hit the bunker
@@ -158,13 +161,13 @@ public class InvadersGameState {
             missiles.get(k).update();
             missiles.get(k).print();
             if (missiles.get(k).getY()>0.9)
-                missiles.remove(k); //is this ok?
+                missiles.remove(k);
         }
         for (int k =0; k<enemy_missiles.size();k++){
             enemy_missiles.get(k).update();
             enemy_missiles.get(k).print();
             if (enemy_missiles.get(k).getY()<0)
-                enemy_missiles.remove(k); //is this ok?
+                enemy_missiles.remove(k);
         }
 
         //IF WE ARE SHOT
